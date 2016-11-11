@@ -12,7 +12,8 @@ RUN apt-get clean
 RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 # Install gollum
-RUN gem install gollum redcarpet github-markdown gollum-lib
+RUN gem install gollum redcarpet github-markdown rdoc
+RUN gem install gollum-lib
 
 # Initialize wiki data
 RUN mkdir /root/wikidata
