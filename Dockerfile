@@ -35,7 +35,7 @@ RUN eval "$(rbenv init -)"; rbenv install 2.3.1 \
 
 # Install gollum
 RUN gem install bundler
-RUN apt-get install libicu-dev
+RUN apt-get install -y libicu-dev
 RUN gem install gollum
 
 # Initialize wiki data
