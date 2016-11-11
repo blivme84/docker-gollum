@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Takahiro Suzuki <suttang@gmail.com>
 
@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install dependencies
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y -q git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+RUN apt-get install -y -q git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev libicu-dev
 RUN apt-get clean
 RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 RUN git clone git://github.com/sstephenson/rbenv.git /usr/local/rbenv \
@@ -35,7 +35,6 @@ RUN eval "$(rbenv init -)"; rbenv install 2.3.1 \
 
 # Install gollum
 RUN gem install bundler
-RUN apt-get install -y libicu-dev
 RUN gem install gollum
 
 # Initialize wiki data
