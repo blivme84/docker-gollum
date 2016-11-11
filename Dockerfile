@@ -16,7 +16,7 @@ RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 RUN exec $SHELL
 RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-RUN exec $SHELL
+RUN source ~/.bashrc
 RUN rbenv install 2.3.1
 RUN rbenv global 2.3.1
 
