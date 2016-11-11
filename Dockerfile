@@ -19,8 +19,9 @@ RUN rbenv install 2.3.1
 RUN rbenv global 2.3.1
 
 # Install gollum
-RUN gem install gollum redcarpet github-markdown rdoc
-RUN gem install gollum-lib
+RUN gem install bundler
+RUN gem install gollum
+RUN apt-get install libicu-dev
 
 # Initialize wiki data
 RUN mkdir /root/wikidata
