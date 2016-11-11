@@ -8,11 +8,11 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y -q build-essential python2.7 ruby2.0 python python-docutils ruby-bundler libicu-dev libreadline-dev libssl-dev zlib1g-dev git-core
+RUN apt-get install -y rubygems
 RUN apt-get clean
 RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 # Install gollum
-RUN gem update --system
 RUN gem install gollum redcarpet github-markdown rdoc
 RUN gem install gollum-lib
 
