@@ -13,8 +13,10 @@ RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+RUN exec $SHELL
 RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+RUN exec $SHELL
 RUN rbenv install 2.3.1
 RUN rbenv global 2.3.1
 
