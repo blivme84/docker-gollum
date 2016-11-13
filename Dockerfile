@@ -34,9 +34,9 @@ RUN eval "$(rbenv init -)"; rbenv install 2.3.1 \
 &&  eval "$(rbenv init -)"; gem install bundler
 
 # Install gollum
-RUN gem install bundler
 RUN gem install gollum
 RUN gem install gollum-lib
+#RUN gem install bundler
 
 # Initialize wiki data
 RUN mkdir /root/wikidata
@@ -45,4 +45,4 @@ RUN git init /root/wikidata
 # Expose default gollum port 4567
 EXPOSE 4567
 
-ENTRYPOINT ["gollum", "/root/wikidata"]
+ENTRYPOINT ["/bin/gollum", "/root/wikidata"]
