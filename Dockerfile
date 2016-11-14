@@ -7,5 +7,5 @@ RUN gem install gollum-lib github-markdown
 
 VOLUME /wiki
 WORKDIR /wiki
-CMD ["gollum", "--port", "4567"]
+CMD ["gollum", "--port", "4567", "--config", "/wiki/config.rb", "--css", "--js"]
 EXPOSE 4567
